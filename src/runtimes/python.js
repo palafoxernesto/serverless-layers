@@ -23,6 +23,7 @@ class PythonRuntime {
 
     this.commands = {
       pip: `pip install -r ${this.default.dependenciesPath} -t .`,
+      docker: `docker run -v "$PWD":/var/task "lambci/lambda:build-${this.default.runtime}" /bin/sh -c "pip install -r ${this.default.dependenciesPath} -t . "`,
     };
   }
 

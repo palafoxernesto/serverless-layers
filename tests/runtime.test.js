@@ -72,7 +72,16 @@ describe('Runtime', () => {
         error: sinon.spy(),
       };
       process.exit = sinon.spy();
+      lodashSet(plugin, 'service.provider.runtime', 'python3.7');
+      runtimes = new Runtime(plugin);
     });
+
+    it('should merge settings with new values', () => {
+      expect(runtimes.getDefaultSettings({
+        compatibleRuntimes: ['python3.7'],
+        packageManager: 'docker'
+      })).to.deep.equal(pythonConfig);
+    })
 
     it('should throw error when undefined runtime', () => {
       lodashSet(plugin, 'service.provider.runtime', undefined);

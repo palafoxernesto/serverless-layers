@@ -1,9 +1,10 @@
 module.exports = {
+  runtime: 'python3.7',
   runtimeDir: 'python',
   libraryFolder: 'site-packages',
-  packageManager:  'pip',
+  packageManager:  'docker',
   dependenciesPath: 'requirements.txt',
-  compatibleRuntimes: ["python3.8"],
+  compatibleRuntimes: ["python3.7"],
   copyBeforeInstall: [],
   packageExclude: [
     'package.json',
